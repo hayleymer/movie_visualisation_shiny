@@ -1,5 +1,7 @@
 # IMDB Movie Trends Dashboard
 
+<img width="2461" height="1313" alt="screenshot" src="https://github.com/user-attachments/assets/4e5c2457-54c8-401c-8f25-8623356d498b" />
+
 ## Business Problem
 
 Film production trends evolve over time due to technological advancement, industry investment, and global market expansion. Understanding long-term trends in film runtime, production budgets, and language distribution provides valuable insight into industry growth, production scale, and content diversification.
