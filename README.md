@@ -1,77 +1,145 @@
 # IMDB Movie Trends Dashboard
 
-An interactive data exploration dashboard built with **R Shiny** and **Plotly**, analysing long-term trends in global film production using IMDB metadata (1918–2017).
+## Business Problem
 
-This project demonstrates end-to-end workflow skills: data cleaning, feature engineering, interactive visualisation design, and deployment.
+Film production trends evolve over time due to technological advancement, industry investment, and global market expansion. Understanding long-term trends in film runtime, production budgets, and language distribution provides valuable insight into industry growth, production scale, and content diversification.
 
----
+However, static charts limit the ability to explore complex relationships across multiple variables and time periods.
 
-## Project Objective
+This project develops an interactive dashboard that allows users to dynamically explore global film production trends using IMDB metadata.
 
-The goal of this project was to transform raw movie metadata into an interactive tool that enables users to explore:
-
-- How film runtimes have evolved over a century  
-- Growth in production budgets over time  
-- Differences between English and non-English films  
-- Patterns across release years and budget ranges  
-
-Rather than presenting static charts, the dashboard supports real-time filtering and exploration to allow users to investigate trends dynamically.
+The objective is to transform raw movie metadata into an interactive analytical tool that supports real-time exploration of runtime trends, budget growth, and language distribution across nearly a century of film production.
 
 ---
 
-## Technical Implementation
+## Dataset
+
+The dataset contains IMDB movie metadata spanning 1918–2017, including:
+
+- Film release dates  
+- Production budgets  
+- Runtime duration  
+- Original language  
+- Movie titles and metadata  
+
+### Key variables used
+
+- Release date  
+- Runtime (minutes)  
+- Budget  
+- Original language  
+
+### Engineered features
+
+New analytical variables were created to support time-based analysis:
+
+- Release year extracted from release date  
+- Language grouping (English vs non-English)  
+- Cleaned and filtered budget and runtime values  
+
+Invalid or missing values were removed to ensure reliable visualisation.
+
+---
+
+## Approach
 
 ### Data Preparation
+
 - Parsed and standardised release dates  
-- Engineered new features (`release year`, `language grouping`)  
-- Filtered invalid runtime and budget values  
-- Recoded language codes into readable categories  
+- Extracted release year for trend analysis  
+- Cleaned runtime and budget values  
+- Recoded language categories into interpretable groups  
 
 ### Visualisation Design
-- Interactive scatter plots using `plotly`  
-- Language grouping with consistent colour mapping  
-- Custom hover tooltips with contextual movie metadata  
-- Zoom and export functionality  
-- Reactive filtering logic for dynamic data exploration  
 
-### Deployment
-- Built using `shiny` and `shinydashboard`  
-- Deployed via shinyapps.io  
+Interactive visualisations were built using Plotly to allow dynamic exploration.
 
----
+Key visualisation features:
 
-## Key Features
+- Runtime vs release year scatter plot  
+- Budget vs release year scatter plot  
+- Colour grouping by language  
+- Interactive hover tooltips showing movie details  
+- Zoom, pan, and export functionality  
 
-### Movie Runtime Explorer
-Visualises runtime vs release year to identify trends and outliers in film duration over time.
+### Dashboard Development
 
-### Movie Budget Explorer
-Displays budget growth across decades, highlighting the expansion of production scale.
+The dashboard was built using Shiny and shinydashboard to enable interactive analysis.
 
-### Interactive Movie Database
-Filterable data table allowing users to subset films by:
-- Original language  
-- Year range  
+Reactive components allow users to dynamically filter data by:
+
+- Language  
+- Release year range  
 - Budget range  
 
+This enables users to explore trends interactively rather than relying on static visualisations.
+
+### Deployment
+
+The dashboard was deployed using shinyapps.io, enabling public access via a web browser without requiring local installation.
+
 ---
 
-## Live Application
+## Results
 
-**View the dashboard here:**  
+The dashboard enables interactive exploration of film industry trends over nearly 100 years.
+
+Key capabilities include:
+
+- Visualising how film runtimes have evolved over time  
+- Exploring growth in production budgets across decades  
+- Comparing English and non-English film production patterns  
+- Identifying outliers and structural trends  
+
+The interactive design allows users to dynamically investigate relationships between production scale, time, and language.
+
+---
+
+## Key Findings
+
+Exploratory analysis revealed several structural industry trends:
+
+- Film production budgets have increased significantly over time  
+- Runtime duration shows gradual stabilisation after early variation  
+- English-language films dominate production volume  
+- High-budget films have become more common in recent decades  
+
+These findings reflect the expansion and commercialisation of global film production.
+
+---
+
+## Tech Stack
+
+R  
+shiny  
+shinydashboard  
+plotly  
+dplyr  
+
+### Analytical and Visualisation Techniques
+
+- Data cleaning and preprocessing  
+- Feature engineering  
+- Interactive visualisation  
+- Dashboard development  
+- Reactive filtering and user-driven exploration  
+
+---
+
+## How to Run
+
+### Run locally in R
+
+Open the project in RStudio and run:
+
+```r
+shiny::runApp()
+```
+
+### View deployed dashboard
+
+Live application available at:
+
 https://yvjrbk-hayley-merat.shinyapps.io/Assessment3/
 
----
-
-## Data Source
-
-- Banik, R. (2017). *The Movie Dataset*. Kaggle  
-- Internet Movie Database (IMDB)
-
----
-
-## Limitations & Future Enhancements
-
-- Budgets are not adjusted for inflation  
-- Analysis is exploratory rather than model-driven  
-- Future enhancements could include inflation normalisation and regression-based trend modelling  
+No installation required for online access.
